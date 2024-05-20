@@ -1,3 +1,6 @@
+fixed "Run cp -R static/* output" error & permisson upfrade
+
+
 # ESPHome shared workflows
 
 This repository contains workflows to be used by other repositories.
