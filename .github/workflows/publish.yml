@@ -28,6 +28,9 @@ on:
         type: string
         default: latest
 
+permissions:
+  contents: write
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
