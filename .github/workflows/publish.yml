@@ -50,7 +50,7 @@ jobs:
       esphome-version: ${{ steps.esphome-build.outputs.esphome-version }}
     steps:
       - uses: actions/checkout@v4.1.6
-      - uses: esphome/build-action@v1.5.2
+      - uses: esphome/build-action@v2.0.0
         id: esphome-build
         with:
           yaml_file: ${{ matrix.file }}
@@ -58,7 +58,7 @@ jobs:
       - run: |
           mkdir output
           mv "${{ steps.esphome-build.outputs.name }}" output/
-      - uses: actions/upload-artifact@v3.1.2
+      - uses: actions/upload-artifact@v4.3.3
         with:
           name: ${{ inputs.name }}
           path: output
@@ -69,7 +69,7 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v4.1.6
-      - uses: actions/download-artifact@v3.0.2
+      - uses: actions/download-artifact@v4.1.7
         with:
           path: output
           name: ${{ inputs.name }}
@@ -81,7 +81,7 @@ jobs:
       - run: cp -R static/* output
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        uses: JamesIves/github-pages-deploy-action@v4.6.1
         with:
           branch: gh-pages
           folder: output
